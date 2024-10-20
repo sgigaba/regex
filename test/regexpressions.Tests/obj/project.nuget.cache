@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XWSx6X5yloadZb0ANZS1v3ioME12YMZIHwcorkm3BogncuJe+vkonWXJOif1dhBZ5xETeKYj4wx1MfbL/xOe2w==",
+  "dgSpecHash": "/UiNFAo5Yb62rhRVM1nLbhgTOLoE/sYctTv7Xo+RFyzBB0naAftzSt2hR7/iis9nNiB3U/CmWzNv1gU0S0qdGw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\samkelog\\source\\repos\\Regex\\test\\regexpressions.Tests\\regexpressions.Tests.csproj",
+  "projectFilePath": "C:\\Users\\samkelog\\source\\repos\\RegexRepo\\test\\regexpressions.Tests\\regexpressions.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\samkelog\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
     "C:\\Users\\samkelog\\.nuget\\packages\\microsoft.codecoverage\\17.8.0\\microsoft.codecoverage.17.8.0.nupkg.sha512",

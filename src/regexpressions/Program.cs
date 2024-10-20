@@ -6,34 +6,23 @@
 }*/
 
 
-using regexpressions.Patterns;
+//using regexpressions.Patterns;
 
-string inputLine = Console.In.ReadToEnd();
+//string inputLine = Console.In.ReadToEnd();
 // string inputLine = "abcdabcc is abcdabcc, not efg";
 //string inputLine = "1a1a";
- string pattern =args[1]; 
+ //string pattern =args[1]; 
 //string pattern = "\\d\\w\\d\\w"; 
 // string pattern = "([abcd]+) is \\1, not [^xyz]+";
 //string pattern = "abcde\\d";
 
 //var patternExpressions = new List<Expressions>();
 
-inputLine = inputLine.Trim();
-var expressionBuilder = new Patterns();
+//inputLine = inputLine.Trim();
+//var expressionBuilder = new Patterns();
 
+Console.WriteLine("");
 
-var expressions = expressionBuilder.BuildExpressionList(pattern);
-
-Console.WriteLine(expressions);
-int i = 0;
-
-foreach(var val in inputLine)
-{
-    if (expressions[i].Invoke(val)){
-        Console.WriteLine("Match");
-        i++;
-    }
-}
 /*
 List<bool> foundMatches = new List<bool>();
 

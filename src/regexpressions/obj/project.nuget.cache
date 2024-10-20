@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/LBuRAQif6qIlDF8X2kuKu//bfWEFoIbpqwTtq2LuKsehXwh2ZqLAdo7pX9aU+iINvhhFX0bOpbjlLNJYnVBTw==",
+  "dgSpecHash": "jzS43ewLP9+4ggfHc4K6Hna+7lAQBmcLZ/4cHgL3ee4GMNthuqic0DE/xo/gUYeQcbGeVB9BU6djfclLmhLC/w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\samkelog\\source\\repos\\Regex\\src\\regexpressions\\regexpressions.csproj",
+  "projectFilePath": "C:\\Users\\samkelog\\source\\repos\\RegexRepo\\src\\regexpressions\\regexpressions.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

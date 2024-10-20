@@ -1,50 +1,67 @@
-namespace regexpressions.Patterns 
+using System.Dynamic;
+
+namespace regexpressions.Patterns
 {
     public class Patterns
     {
-        Dictionary<string, Func<char, bool>> _expressionss = new Dictionary<string, Func<char, bool>>
+        Dictionary<string, ExpressionBase> expressionHandler = new Dictionary<string, ExpressionBase>
         {
-            { "\\d", char.IsDigit },
-            { "\\w", char.IsLetterOrDigit }
+            { "\\d", new DigitMatch() },
+            { "\\w", new WordMatch() },
         };
 
-        public List<Func<char, bool>> BuildExpressionList(string expression)
+        public List<ExpressionBase> BuildExpressionList(string expression)
         {
-            var characterExpressions = new List<Func<char, bool>>();
+            var characterExpressions = new List<ExpressionBase>();
+            ExpressionBase handlers;
 
-            for (int i = 0; i < expression.Length - 1; i++)
+            for (int i = 0; i < expression.Length; i++)
             {
                 switch (expression[i])
                 {
                     case '\\':
-                        Func<char, bool> searchDelegate;
                         var search = string.Concat(expression[i], expression[i + 1]);
                         
-                        _expressionss.TryGetValue(search, out searchDelegate);
+                        expressionHandler.TryGetValue(search, out handlers);
 
-                        if (searchDelegate != null)
-                            characterExpressions.Add(searchDelegate);
+                        if (handlers != null)
+                            characterExpressions.Add(handlers);
                         else
                             Console.WriteLine("There is No such");
                         i++;
                         break;
+                    case '[':
+                        var searchCharacters = expression.Substring(i + 1, expression.IndexOf(']') - (i + 1));
+                        characterExpressions.Add(new PositiveCharacterClass(searchCharacters));
+                        i = expression.IndexOf(']');
+                        break;
+                    default:
+                       characterExpressions.Add(new ExactMatch(expression[i]));
+                       break;
                 }
             }
+
             return characterExpressions;
         }
 
-        public bool MatchExpression(string inputLine, List<Func<char, bool>> expressions)
+        public bool MatchExpression(char[] inputLine, List<ExpressionBase> expressions, int i = 0, int y = 0)
         {
-            int i = 0;
-            foreach (var val in inputLine)
+            if (i == inputLine.Count())
             {
-                if (expressions[i].Invoke(val))
-                {
+                // if I've looped to the end of the expression and the end of the input line
+                if (i == inputLine.Count() && y == expressions.Count)
                     return true;
-                }
+
+                return false;
             }
 
-            return false;
+            if (y == expressions.Count)
+                return true;
+
+            if (expressions[y].InvokeDelegate(inputLine[i]))
+                return MatchExpression(inputLine, expressions, i + 1, y + 1);
+            else
+                return MatchExpression(inputLine, expressions, i + 1, 0);
         }
     }
 }

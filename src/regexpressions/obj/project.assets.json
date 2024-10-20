@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\samkelog\\source\\repos\\Regex\\src\\regexpressions\\regexpressions.csproj",
+      "projectUniqueName": "C:\\Users\\samkelog\\source\\repos\\RegexRepo\\src\\regexpressions\\regexpressions.csproj",
       "projectName": "regexpressions",
-      "projectPath": "C:\\Users\\samkelog\\source\\repos\\Regex\\src\\regexpressions\\regexpressions.csproj",
+      "projectPath": "C:\\Users\\samkelog\\source\\repos\\RegexRepo\\src\\regexpressions\\regexpressions.csproj",
       "packagesPath": "C:\\Users\\samkelog\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\samkelog\\source\\repos\\Regex\\src\\regexpressions\\obj\\",
+      "outputPath": "C:\\Users\\samkelog\\source\\repos\\RegexRepo\\src\\regexpressions\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\samkelog\\AppData\\Roaming\\NuGet\\NuGet.Config",
