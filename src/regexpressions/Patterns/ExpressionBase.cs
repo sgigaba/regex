@@ -1,8 +1,8 @@
 namespace regexpressions.Patterns
 {
-    public class ExpressionBase
+    public abstract class ExpressionBase
     {
-        Delegate isMatch;
+        protected Delegate isMatch { get; set; }
 
         public virtual void setDelegate(Func<char, bool> isDigit)
         {

@@ -3,7 +3,6 @@ namespace regexpressions.Patterns
     public class PositiveCharacterClass : ExpressionBase
     {
         // take a string with characters and return if a value in that string is in the character class
-        Delegate isMatch { get; set; }
 
         public string SearchCharacters { get; set; }
 

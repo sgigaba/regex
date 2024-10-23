@@ -61,7 +61,11 @@ namespace regexpressions.Patterns
             if (expressions[y].InvokeDelegate(inputLine[i]))
                 return MatchExpression(inputLine, expressions, i + 1, y + 1);
             else
+            {
+                if (y > 0)
+                    i--;
                 return MatchExpression(inputLine, expressions, i + 1, 0);
+            }
         }
     }
 }
