@@ -1,12 +1,11 @@
+
 namespace regexpressions.Patterns
 {
-    public class PositiveCharacterClass : ExpressionBase
+    public class NegativeCharacterClass : ExpressionBase
     {
-        // take a string with characters and return if a value in that string is in the character class
+        private string SearchCharacters {get; set;}
 
-        public string SearchCharacters { get; set; }
-
-        public PositiveCharacterClass(string searchCharacters)
+        public NegativeCharacterClass(string searchCharacters)
         {
             this.SearchCharacters = searchCharacters;
             setDelegate(IsMatch);   
@@ -17,24 +16,24 @@ namespace regexpressions.Patterns
             isMatch = matchCharacters;
         }
 
+        public override bool InvokeDelegate(char value, char comparison)
+        {
+            throw new NotImplementedException();
+        }
+
         public override bool InvokeDelegate(char value)
         {
             return (bool)this.isMatch.DynamicInvoke(value);
         }
-
-        private bool IsMatch(char value) => SearchCharacters.Contains(value);
 
         public override void setDelegate(Func<char, char, bool> isExactMatch)
         {
             throw new NotImplementedException();
         }
 
-        public override void setDelegate(Func<string, bool> matchCharacters)
-        {
-            throw new NotImplementedException();
-        }
+        private bool IsMatch(char value) => !SearchCharacters.Contains(value);
 
-        public override bool InvokeDelegate(char value, char comparison)
+        public override void setDelegate(Func<string, bool> matchCharacters)
         {
             throw new NotImplementedException();
         }

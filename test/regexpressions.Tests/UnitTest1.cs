@@ -216,12 +216,53 @@ public class PatternsTests
     }
 
     [Theory]
-    [InlineData("\\d[abc]\\w\\d")]
-    public void Combine_Positive_Character_Groups_And_Matches_Should_Fail(string inputExpression)
+    [InlineData("[^abc]")]
+    public void Negative_Character_Expression_Should_Pass(string inputExpression)
     {
         var expressionList = expression.BuildExpressionList(inputExpression);
-        var result = expression.MatchExpression(['1','a','a','w','5'], expressionList);
+        var result = expression.MatchExpression(['t','y'], expressionList);
+
+        Assert.True(result);
+    }
+
+    [Theory]
+    [InlineData("[^abc]")]
+    public void Negative_Character_Expression_Should_Fail(string inputExpression)
+    {
+        var expressionList = expression.BuildExpressionList(inputExpression);
+        var result = expression.MatchExpression(['a','b'], expressionList);
 
         Assert.False(result);
+    }
+
+
+    [Theory]
+    [InlineData("[^abc]\\d[abc]")]
+    public void Negative_Character_Expression_And_Positive_Character_Expressions_Should_Pass(string inputExpression)
+    {
+        var expressionList = expression.BuildExpressionList(inputExpression);
+        var result = expression.MatchExpression(['t','1','c'], expressionList);
+
+        Assert.True(result);
+    }
+
+    [Theory]
+    [InlineData("[^abc]\\d[abc]")]
+    public void Negative_Character_Expression_And_Positive_Character_Expressions_Should_Fail(string inputExpression)
+    {
+        var expressionList = expression.BuildExpressionList(inputExpression);
+        var result = expression.MatchExpression(['t','1'], expressionList);
+
+        Assert.False(result);
+    }
+
+    [Theory]
+    [InlineData("[^abc]\\d[abc]vgy\\w\\w\\d")]
+    public void Combination_Expressions_Should_Pass(string inputExpression)
+    {
+        var expressionList = expression.BuildExpressionList(inputExpression);
+        var result = expression.MatchExpression(['t','1','a','v','g','y','w','e','1'], expressionList);
+
+        Assert.True(result);
     }
 }

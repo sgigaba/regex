@@ -31,9 +31,18 @@ namespace regexpressions.Patterns
                         i++;
                         break;
                     case '[':
-                        var searchCharacters = expression.Substring(i + 1, expression.IndexOf(']') - (i + 1));
-                        characterExpressions.Add(new PositiveCharacterClass(searchCharacters));
-                        i = expression.IndexOf(']');
+                        var searchCharacters = "";
+                        if (expression[i + 1] == '^')
+                        {
+                            searchCharacters = expression.Substring(i + 2, expression.IndexOf(']', i) - (i + 2));
+                            characterExpressions.Add(new NegativeCharacterClass(searchCharacters));
+                            i = expression.IndexOf(']', i);
+                        }
+                        else{
+                            searchCharacters = expression.Substring(i + 1, expression.IndexOf(']', i) - (i + 1));
+                            characterExpressions.Add(new PositiveCharacterClass(searchCharacters));
+                            i = expression.IndexOf(']', i);
+                        }
                         break;
                     default:
                        characterExpressions.Add(new ExactMatch(expression[i]));

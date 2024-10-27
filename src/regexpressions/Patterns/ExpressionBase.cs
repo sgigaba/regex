@@ -4,26 +4,15 @@ namespace regexpressions.Patterns
     {
         protected Delegate isMatch { get; set; }
 
-        public virtual void setDelegate(Func<char, bool> isDigit)
-        {
-        }
+        public abstract void setDelegate(Func<char, bool> isDigit);
+        
 
-        public virtual void setDelegate(Func<char, char, bool> isExactMatch)
-        {
-        }
+        public abstract void setDelegate(Func<char, char, bool> isExactMatch);
 
-        public virtual void setDelegate(Func<string, bool> matchCharacters)
-        {
-        }
+        public abstract void setDelegate(Func<string, bool> matchCharacters);
 
-        public virtual bool InvokeDelegate(char value, char comparison)
-        {
-            return false;
-        }
+        public abstract bool InvokeDelegate(char value, char comparison);
 
-        public virtual bool InvokeDelegate(char value)
-        {
-            return false;
-        }
+        public abstract bool InvokeDelegate(char value);
     }
 }
