@@ -1,1 +1,3 @@
-./Patterns/OldImplementation
+.\src\regexpressions\Patterns\OldImplementation.cs
+.\src\regexpressions\bin
+.\src\regexpressions\obj

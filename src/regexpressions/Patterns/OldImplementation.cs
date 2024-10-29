@@ -1,11 +1,14 @@
+public class OldImplementation
+{
 
+}
 /*if (args[0] != "-E")
 {
     Console.WriteLine("Expected first argument to be '-E'");
     Environment.Exit(2);
 }*/
 
-
+//hfhf
 //using regexpressions.Patterns;
 
 //string inputLine = Console.In.ReadToEnd();
@@ -21,7 +24,8 @@
 //inputLine = inputLine.Trim();
 //var expressionBuilder = new Patterns();
 
-Console.WriteLine("");
+
+//Console.WriteLine("");
 
 /*
 List<bool> foundMatches = new List<bool>();
@@ -314,4 +318,4 @@ enum ExpressionTypes
     NegativeCharacterClass,
     ExactMatch
 }
-*
+*/

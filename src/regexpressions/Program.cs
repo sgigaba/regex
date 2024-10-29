@@ -11,9 +11,9 @@ var inputLine = Console.In.ReadToEnd();
 var pattern = args[1];
 
 var patternBuilder = new Patterns();
-var expressionList = patternBuilder.BuildExpressionList(pattern);
+var expressionDetails = patternBuilder.BuildExpressionList(pattern);
 
-var isMatch = patternBuilder.MatchExpression(inputLine.ToCharArray(), expressionList);
+var isMatch = patternBuilder.MatchExpression(inputLine.ToCharArray(), expressionDetails.expressionList, expressionDetails.startAnchor, expressionDetails.endAnchor);
 var result = isMatch ? "is a match" : "is not a match";
 
 Console.WriteLine($"The input: {inputLine} {result} for the expression: {pattern}");
