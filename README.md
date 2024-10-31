@@ -13,7 +13,8 @@ dotnet build in root directory
 
 navigate to src/regexpressions
 
-run: ** echo -n {input string} | dotnet run -E {expression} **
+run: <br/>
+** echo -n {input string} | dotnet run -E {expression} ** <br/>
 i.e:
 ```
 echo -n "apple" | dotnet run -E "a"
