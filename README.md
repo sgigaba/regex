@@ -20,38 +20,60 @@ echo -n "apple" | dotnet run -E "a"
 ```
 Expressions catered for (WIP)
 
-1. Matching literal character
-	echo -n "apple" | ./your_program.sh -E "a"
+1. Matching literal character <br/>
+```
+echo -n "apple" | ./your_program.sh -E "a"
+```
+2.  Matching Digits <br/>
+```
+echo -n "apple123" | ./your_program.sh -E "\\d"
+```
+3. Match alphanumeric characters <br/>
+```
+echo -n "alpha-num3ric" | ./your_program.sh -E "\\w"
+```
 
-2.  Matching Digits
-	echo -n "apple123" | ./your_program.sh -E "\\d"
+4. Positive character groups <br/>
+```
+echo -n "apple" | ./your_program.sh -E "[abc]"
+```
 
-3. Match alphanumeric characters
-	echo -n "alpha-num3ric" | ./your_program.sh -E "\\w"
+5. Negative character groups <br/>
+```
+echo -n "apple" | ./your_program.sh -E "[^abc]"
+```
 
-4. Positive character groups
-	echo -n "apple" | ./your_program.sh -E "[abc]"
+6. Combining Character Classes <br/>
+```
+echo -n "1 apple" | ./your_program.sh -E "\d apple"
+```
 
-5. Negative character groups
-	echo -n "apple" | ./your_program.sh -E "[^abc]"
+7. Start of string anchor <br/>
+```
+echo -n "log" | ./your_program.sh -E "^log"
+```
 
-6. Combining Character Classes
-	echo -n "1 apple" | ./your_program.sh -E "\d apple"
+8. End of string character <br/>
+```
+echo -n "dog" | ./your_program.sh -E "dog$"
+```
 
-7. Start of string anchor
-	echo -n "log" | ./your_program.sh -E "^log"
+9. Match one or more times (WIP, not catered for) <br/>
+```
+echo -n "caats" | ./your_program.sh -E "ca+ts"
+```
 
-8. End of string character 
-	echo -n "dog" | ./your_program.sh -E "dog$"
+10.  Match Zero or one times (WIP, not catered for) <br/>
+```
+echo -n "dogs" | ./your_program.sh -E "dogs?"
+```
 
-9. Match one or more times (WIP)
-	echo -n "caats" | ./your_program.sh -E "ca+ts"
+11. Wildcard (WIP, not catered for) <br/>
+```
+echo -n "dog" | ./your_program.sh -E "d.g"
+```
 
-10.  Match Zero or one times (WIP)
-	echo -n "dogs" | ./your_program.sh -E "dogs?"
-
-11. Wildcard (WIP)
-	echo -n "dog" | ./your_program.sh -E "d.g" (breaking)
-
-12.  Alternation (WIP)
-	echo -n "cat" | ./your_program.sh -E "(cat|dog)" (breaking)
+12.  Alternation (WIP, not catered for) <br/>
+```
+echo -n "cat" | ./your_program.sh -E "(cat|dog)"
+```
