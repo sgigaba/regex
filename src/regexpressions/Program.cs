@@ -6,7 +6,6 @@ if (args[0] != "-E")
     Environment.Exit(2);
 }
 
-
 var inputLine = Console.In.ReadToEnd();
 var pattern = args[1];
 
