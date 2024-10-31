@@ -13,12 +13,12 @@ dotnet build in root directory
 
 navigate to src/regexpressions
 
-run: echo -n {input string} | dotnet run -E {expression}
+run: ** echo -n {input string} | dotnet run -E {expression} **
 i.e:
 ```
 echo -n "apple" | dotnet run -E "a"
 ```
-Expressions catered for (WIP)
+# Expressions catered for (WIP)
 
 1. Matching literal character <br/>
 ```
