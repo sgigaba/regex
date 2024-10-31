@@ -9,27 +9,27 @@ namespace regexpressions.Patterns
         public PositiveCharacterClass(string searchCharacters)
         {
             this.SearchCharacters = searchCharacters;
-            setDelegate(IsMatch);   
+            SetDelegate(ContainsCharacter);   
         }
 
-        public override void setDelegate(Func<char, bool> matchCharacters)
+        public override void SetDelegate(Func<char, bool> matchCharacters)
         {
-            isMatch = matchCharacters;
+            base.IsMatch = matchCharacters;
         }
 
         public override bool InvokeDelegate(char value)
         {
-            return (bool)this.isMatch.DynamicInvoke(value);
+            return (bool)this.IsMatch.DynamicInvoke(value);
         }
 
-        private bool IsMatch(char value) => SearchCharacters.Contains(value);
+        private bool ContainsCharacter(char value) => SearchCharacters.Contains(value);
 
-        public override void setDelegate(Func<char, char, bool> isExactMatch)
+        public override void SetDelegate(Func<char, char, bool> isExactMatch)
         {
             throw new NotImplementedException();
         }
 
-        public override void setDelegate(Func<string, bool> matchCharacters)
+        public override void SetDelegate(Func<string, bool> matchCharacters)
         {
             throw new NotImplementedException();
         }

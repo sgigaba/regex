@@ -3,26 +3,26 @@ namespace regexpressions.Patterns
     public class ExactMatch : ExpressionBase
     {
         // take a word and return if it's an exact match
-        public char comparison { get; set; }
+        public char Comparison { get; set; }
 
         public ExactMatch(char comparison)
         {
-            this.comparison = comparison;
-            setDelegate(isExactMatch); 
+            this.Comparison = comparison;
+            SetDelegate(IsExactMatch); 
         }
 
-        public override void setDelegate(Func<char, bool> isExactMatch) => isMatch = isExactMatch;
+        public override void SetDelegate(Func<char, bool> isExactMatch) => IsMatch = isExactMatch;
 
-        public override bool InvokeDelegate(char value) => (bool)this.isMatch.DynamicInvoke(value);
+        public override bool InvokeDelegate(char value) => (bool)this.IsMatch.DynamicInvoke(value);
 
-        private bool isExactMatch(char value) => value == this.comparison;
+        private bool IsExactMatch(char value) => value == this.Comparison;
 
-        public override void setDelegate(Func<char, char, bool> isExactMatch)
+        public override void SetDelegate(Func<char, char, bool> isExactMatch)
         {
             throw new NotImplementedException();
         }
 
-        public override void setDelegate(Func<string, bool> matchCharacters)
+        public override void SetDelegate(Func<string, bool> matchCharacters)
         {
             throw new NotImplementedException();
         }

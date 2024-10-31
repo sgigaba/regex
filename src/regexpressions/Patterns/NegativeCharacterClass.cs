@@ -8,12 +8,12 @@ namespace regexpressions.Patterns
         public NegativeCharacterClass(string searchCharacters)
         {
             this.SearchCharacters = searchCharacters;
-            setDelegate(IsMatch);   
+            SetDelegate(DoesNotContainCharacter);   
         }
 
-        public override void setDelegate(Func<char, bool> matchCharacters)
+        public override void SetDelegate(Func<char, bool> matchCharacters)
         {
-            isMatch = matchCharacters;
+            base.IsMatch = matchCharacters;
         }
 
         public override bool InvokeDelegate(char value, char comparison)
@@ -23,17 +23,17 @@ namespace regexpressions.Patterns
 
         public override bool InvokeDelegate(char value)
         {
-            return (bool)this.isMatch.DynamicInvoke(value);
+            return (bool)this.IsMatch.DynamicInvoke(value);
         }
 
-        public override void setDelegate(Func<char, char, bool> isExactMatch)
+        public override void SetDelegate(Func<char, char, bool> isExactMatch)
         {
             throw new NotImplementedException();
         }
 
-        private bool IsMatch(char value) => !SearchCharacters.Contains(value);
+        private bool DoesNotContainCharacter(char value) => !SearchCharacters.Contains(value);
 
-        public override void setDelegate(Func<string, bool> matchCharacters)
+        public override void SetDelegate(Func<string, bool> matchCharacters)
         {
             throw new NotImplementedException();
         }
